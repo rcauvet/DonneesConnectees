@@ -54,6 +54,7 @@ app.get("/IdAnnot", function(req, res){
 	
 	res.format ({
 		   'text/html': function() {
+			   console.log("Ce document est un html");
 			    if (Exist){
 				   res.send(ListFound); 
 			    }
@@ -63,6 +64,7 @@ app.get("/IdAnnot", function(req, res){
 		   },
 
 		   'application/json': function() {
+			   console.log("Ce document est un json");
 			    if (Exist){
 				   res.send(ListFound); 
 			    }
@@ -92,10 +94,12 @@ app.get("/AllAnnot", function(req, res){
 		
 	res.format ({
 		   'text/html': function() {
+			   console.log("Ce document est un html");
 			  res.send(data); 
 		   },
 
 		   'application/json': function() {
+			   console.log("Ce document est un json");
 			  res.send(data);
 			}
 	});
@@ -127,10 +131,12 @@ app.get("/URI", function(req, res){
 		
 	res.format ({
 		   'text/html': function() {
+			   console.log("Ce document est un html");
 			  res.send(tabRep); 
 		   },
 
 		   'application/json': function() {
+			   console.log("Ce document est un json");
 			  res.send(tabRep);
 			}
 	});

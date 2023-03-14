@@ -26,7 +26,16 @@ app.post("/annotation", function(req, res){
 app.get("/IdAnnot", function(req, res){
 	var IdAnnot = req.query.Annot;
 	
-	var Exist=Object.keys(data).includes(IdAnnot);
+	var Exist=false;
+	
+	var ListFound = [];
+	
+	for (key in data){
+		if (data[key]["Commentaire"]==IdAnnot){
+			Exist = true;
+			ListFound.push(data[key]);
+		}
+	}
 	
 	var ChoixFormat=req.query.FormatIdAnnot;
 	
@@ -46,7 +55,7 @@ app.get("/IdAnnot", function(req, res){
 	res.format ({
 		   'text/html': function() {
 			    if (Exist){
-				   res.send(data[IdAnnot]); 
+				   res.send(ListFound); 
 			    }
 			    else {
 				   res.send("aucune annotation n'est associée à cette clé");
@@ -55,7 +64,7 @@ app.get("/IdAnnot", function(req, res){
 
 		   'application/json': function() {
 			    if (Exist){
-				   res.send(data[IdAnnot]); 
+				   res.send(ListFound); 
 			    }
 			    else {
 				   res.send("aucune annotation n'est associée à cette clé");

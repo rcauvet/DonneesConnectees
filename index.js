@@ -31,7 +31,7 @@ app.get("/IdAnnot", function(req, res){
 	var ListFound = [];
 	
 	for (key in data){
-		if (data[key]["Commentaire"]==IdAnnot){
+		if (key==IdAnnot){
 			Exist = true;
 			ListFound.push(data[key]);
 		}

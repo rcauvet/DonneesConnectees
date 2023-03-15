@@ -116,7 +116,7 @@ app.get("/URI", function(req, res){
 	
 	for (key in data){
 		if (data[key]["URI"]==IdURI){
-			tabRep.push({"IdAnnotation" : data[key], "Commentaire" : data[key]["Commentaire"]});
+			tabRep.push({"IdAnnotation" : key, "Commentaire" : data[key]["Commentaire"]});
 		}
 	}
 	
